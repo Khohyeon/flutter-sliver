@@ -46,11 +46,26 @@ class HomePage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Container(
-              color: Colors.red,
               height: 200,
+              color: Colors.grey,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                return Container(
+                width: 200.0,
+                child: Container(
+                child:
+                Text('test', style: TextStyle(fontSize: 30),
+                ),
+                alignment: Alignment.center,
+                )
+                );
+                },
+              ),
             ),
           ),
-          // SliverList(
+                  // SliverList(
           //   delegate: SliverChildBuilderDelegate(
           //   childCount: 10,
           //   (context, index) {

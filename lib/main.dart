@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // CustomScrollView 를 사용 하는 이유 : 계산을 편하게 하기 위해
       body: CustomScrollView(
+        // scrollDirection: Axis.horizontal,
         slivers: [
           SliverAppBar(
             snap: true,
@@ -43,12 +44,27 @@ class HomePage extends StatelessWidget {
             title: Text("SubSliver"),
             pinned: true,
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              color: Colors.red,
+              height: 200,
+            ),
+          ),
+          // SliverList(
+          //   delegate: SliverChildBuilderDelegate(
+          //   childCount: 10,
+          //   (context, index) {
+          //     return Text("안녕");
+          //     },
+          //   ),
+          // ),
+
           SliverFixedExtentList(
             itemExtent: 100,
             delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                if(index % 4 ==0 && index !=0){
-                  int i = (index/4).toInt();
+                  (context, index) {
+                if (index % 4 == 0 && index != 0) {
+                  int i = (index / 4).toInt();
                   return Ad(i);
                 }
                 return Diary(index);
